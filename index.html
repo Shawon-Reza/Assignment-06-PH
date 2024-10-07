@@ -33,7 +33,7 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main class="container mx-auto">
         <!-- Manual Parts -->
         <section class="pt-14 ">
             <div class="text-container mx-auto lg:max-w-2xl max-w-lg  text-center space-y-3">
@@ -44,7 +44,7 @@
                 <p class="text-[#131313]">It is a long established fact that a reader will be distracted by the readable
                     content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
 
-                <button class=" btn bg-green-500">View More</button>
+                <button class=" btn btn-accent">View More</button>
             </div>
             <!-- Img Container -->
             <div class="max-w-2xl mx-auto border rounded-xl mt-2">
@@ -58,6 +58,15 @@
             </div>
 
         </section>
+
+        <!-- Dynamically Create Categories Section -->
+        <section id="Allcatagories" class="grid grid-cols-4 gap-4">
+        </section>
+
+        <div class="my-8 flex justify-between items-center">
+            <h2 class="font-bold">Best Deal For You</h2>
+            <button class="btn btn-accent">Sort By Price</button>
+        </div>
 
     </main>
 
@@ -97,6 +106,10 @@
     </footer>
 
 
+
+
+
+    <script src="js/fetch.js"></script>
 </body>
 
 </html>
