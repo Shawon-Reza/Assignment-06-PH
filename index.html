@@ -32,11 +32,49 @@
                 <i class="fa-solid fa-address-book "></i>
             </div>
         </nav>
+
+        <!-- Modal Structure -->
+        <div id="petModal"
+            class=" hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-11 space-y-1">
+            <div class="z-10 bg-white p-6 rounded-lg shadow-lg">
+
+
+                <img id="modalPetImage" class="w-full h-[300px] rounded-lg object-cover mx-auto " />
+
+                <h1 id="modalPetName" class="text-xl font-bold  mt-4"></h1>
+
+                <div class="grid grid-cols-2 ">
+                    <p id="modalPetBreed" class="">Breed:</p>
+                    <p id="modalPetBirth" class="">Birth:</p>
+                    <p id="modalPetGender" class="">Gender:</p>
+                    <p id="modalPetPrice" class="">Price:</p>
+                    <p id="modalPetVaccinated" class="">Vaccination Status:</p>
+
+                </div>
+                <hr class="my-2">
+                <p class="font-bold">Details Informations</p>
+                <p id="petDetails" class="max-w-lg"></p>
+
+
+
+
+                <button id="closeModal" class="btn mt-4 mx-auto block">Cancel</button>
+            </div>
+        </div>
+        <!-- Modal end -->
+
+        <!-- CountDown -->
+        <div id="modal" class="modal">
+            <div class="countdown" id="countdown">3</div>
+        </div>
+        <!-- Count Down ENd -->
+
+
     </header>
     <main class="container mx-auto">
         <!-- Manual Parts -->
         <section class="pt-14 ">
-            <div class="text-container mx-auto lg:max-w-2xl max-w-lg  text-center space-y-3">
+            <div class="text-container mx-auto lg:max-w-2xl max-w-lg   space-y-3">
                 <p class="text-[#13131399] font-bold">Bringing Families Together <i
                         class="fa-solid fa-fire text-red-600"></i>
                 </p>
@@ -44,16 +82,16 @@
                 <p class="text-[#131313]">It is a long established fact that a reader will be distracted by the readable
                     content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
 
-                <button class=" btn btn-accent">View More</button>
+                <button class=" btn btn-accent " onclick="location.href='#Allcatagories'">View More</button>
             </div>
             <!-- Img Container -->
             <div class="max-w-2xl mx-auto border rounded-xl mt-2">
                 <img class="w-full h-full" src="./images/pet.webp" alt="">
             </div>
             <!-- 2nd Text COntainer -->
-            <div class="mt-24 mb-12 text-center max-w-2xl mx-auto space-y-2">
+            <div class="mt-24 mb-12  max-w-2xl mx-auto space-y-2">
                 <h2 class="text-5xl font-bold">Adopt Your Best Friend</h2>
-                <p class="opacity-55">It is a long established fact that a reader will be distracted by the readable
+                <p class="">It is a long established fact that a reader will be distracted by the readable
                     content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
             </div>
 
@@ -63,16 +101,17 @@
         <section id="Allcatagories" class="grid grid-cols-4 gap-4">
         </section>
 
-        <div class="my-8 flex justify-between items-center">
+        <div class="my-8 flex justify-between items-center ">
             <h2 class="font-bold">Best Deal For You</h2>
             <button class="btn btn-accent">Sort By Price</button>
         </div>
 
         <!-- Dynamically Show All Pets  -->
-        <section class="grid grid-cols-4 border rounded-lg p-4 gap-2">
+        <section id="AllPetsContainer" class="grid grid-cols-4 border rounded-lg p-4 gap-2">
             <!--All Pets Containers**** -->
-            <div id="AllPerContainer" class="col-span-3 border rounded-lg grid grid-cols-3 gap-3 p-1 shadow-lg">
-                
+            <div id="AllPerContainer"
+                class="col-span-3 border rounded-lg grid grid-cols-2 lg:grid-cols-3 gap-3 p-1 shadow-lg">
+
             </div>
             <!-- Update After like -->
             <div class="border rounded-lg">
@@ -80,6 +119,7 @@
             </div>
 
         </section>
+
 
     </main>
 

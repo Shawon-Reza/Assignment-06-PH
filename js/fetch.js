@@ -28,18 +28,64 @@ function displayALLCategories(data) {
           <img class="w-6 h-6" src="${element.category_icon}"  >
           <p class="font-bold"> ${element.category}</p>
         </button>
-           `
-        cetagoriesContainer.append(div)
+          `
         div.classList = "btn"
+        // Buton actions
+        div.onclick = async () => {
+            const btnRes = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${element.category}`)
+            const btnData = await btnRes.json();
+            // Send the data for displayAllPets() funtion
+            displayAllPets(btnData.data)
+        }
+        cetagoriesContainer.append(div)
     });
 }
+// Fetch pets using categories .
+async function fetchPetsUsingCategories() {
+    const res = await fetch('')
 
-// Display All pets fetch from fetchAllPets(). line 10.
+}
+fetchPetsUsingCategories();
+
+// Display All pets*** fetch from fetchAllPets(). line 10.
 const displayAllPets = (data) => {
+
     const AllPetContainer = document.getElementById('AllPerContainer')
+
+    AllPetContainer.innerHTML = ""
+    // check that the sectains contains data or not. if data not found then show custom value;
+    if (data.length == 0) {
+
+        AllPetContainer.innerHTML = `
+        <figure class="h-[200px] flex justify-center mt-8">
+          <img class=" h-full object-cover " src="./images/error.webp" alt="Error image">
+
+        </figure>
+        <h1 class="text-center text-3xl font-bold">No Information Available</h1>
+        <p class="text-center max-w-lg mx-auto opacity-50 mb-8">It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+        its layout. The point of using Lorem Ipsum is that it has a.</p>
+
+        `
+        AllPetContainer.classList.add('col-span-4')
+        AllPetContainer.classList.add('lg:col-span-4')
+        AllPetContainer.classList.add('grid-cols-1')
+        AllPetContainer.classList.add('lg:grid-cols-1')
+
+    }
+    else {
+        AllPetContainer.classList.remove('col-span-4')
+        AllPetContainer.classList.remove('grid-cols-1')
+        AllPetContainer.classList.remove('lg:col-span-4')
+        AllPetContainer.classList.remove('lg:grid-cols-1')
+
+    }
+
+
+
+    // Show All pets using for loop
     for (element of data) {
         const div = document.createElement('div')
-        div.innerHTML=`
+        div.innerHTML = `
         <div class="h-[160px]">
          <img class="h-full rounded-lg object-cover" src="${element.image}">
         </div>
@@ -52,21 +98,42 @@ const displayAllPets = (data) => {
         <p><i class="fa-solid fa-venus"></i> Gender: ${element.gender}</p>
         <p><i class="fa-solid fa-tag"></i> Price: ${element.price}</p> <hr>
 
-        <div class="flex justify-between">
-        <button><i class="fa-regular fa-thumbs-up"></i></button>
-        <button class="">Adopt</button>
-        <button class="">Details</button>
+        <div class="flex justify-between mt-2">
+        <button class="btn"><i class="fa-regular fa-thumbs-up"></i></button>
+        <button class="btn">Adopt</button>
+        <button class="btn" onclick="showModal(${element.petId})">Details</button>
         </div>
         `
-
         AllPetContainer.append(div)
-        div.classList="border rounded-lg p-4 shadow-lg "
-        console.log(element)
-
-
+        div.classList = "border rounded-lg p-4 shadow-lg "
     }
-
-
-
-
 }
+
+async function showModal(petId) {
+    const res= await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`) 
+    const data=await res.json();
+    const finalData=data.petData
+
+    // Fetch pet details from the API
+    
+        // Populate the modal with the pet data
+        document.getElementById('modalPetImage').src = finalData.image;
+        document.getElementById('modalPetName').textContent = finalData.pet_name;
+        document.getElementById('modalPetBreed').textContent = ` Breed: ${finalData.breed}`;
+        document.getElementById('modalPetBirth').textContent = ` Birth: ${finalData.date_of_birth}`;
+        document.getElementById('modalPetGender').textContent = `Gender: ${finalData.gender}`;
+        document.getElementById('modalPetPrice').textContent = `Price: ${finalData.price}`;
+        document.getElementById('modalPetVaccinated').textContent = `Vaccination Status: ${finalData.vaccinated_status}`;
+
+        document.getElementById('petDetails').textContent = ` ${finalData.pet_details}`;
+  
+        // Show the modal
+        document.getElementById('petModal').classList.remove('hidden');
+     
+  }
+  
+  // Close the modal when clicking the "close" button
+  document.getElementById('closeModal').onclick = function() {
+    document.getElementById('petModal').classList.add('hidden');
+  };
+  
