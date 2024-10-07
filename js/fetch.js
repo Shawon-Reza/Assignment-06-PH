@@ -100,7 +100,7 @@ const displayAllPets = (data) => {
 
         <div class="flex justify-between mt-2">
         <button class="btn"><i class="fa-regular fa-thumbs-up"></i></button>
-        <button class="btn" onclick="CountDownModal()">Adopt</button>
+        <button id="btn${element.petId}" class="btn" onclick="CountDownModal(${element.petId})">Adopt</button>
         <button class="btn" onclick="showModal(${element.petId})">Details</button>
         </div>
         `
@@ -139,9 +139,23 @@ document.getElementById('closeModal').onclick = function () {
 
 //   CountDown Modal
 
-function CountDownModal() {
-    console.log("Count")
-   
+function CountDownModal(id) {
+    const value= document.getElementById('countdown').innerText=3;
+    let integervalue = parseInt(value);
+    //    console.log(typeof integervalue)
+    const intervalId = setInterval(() => {
+        integervalue--;
 
+        if (integervalue < 0) {
+            document.getElementById('my_modal_1').close();
+            clearInterval(intervalId);
+
+            document.getElementById(`btn${id}`).disabled = true;
+
+            return;
+        } else {
+            document.getElementById('countdown').innerText = integervalue;
+        }
+    }, 1000);
     my_modal_1.showModal()
 }
