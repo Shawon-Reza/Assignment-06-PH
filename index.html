@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-06</title>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/4cb4624b15.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <header class="container mx-auto px-5">
+        <nav class="flex justify-between items-center  pt-5">
+            <div class="flex gap-3 ">
+                <img src="./images/logo.webp" alt="" class="object-fill">
+                <h1 class="text-3xl font-bold">Peddy</h1>
+            </div>
+            <div>
+                <ul class="flex gap-3 lg:gap-12 md:gap-8">
+                    <li>Home</li>
+                    <li>Shop</li>
+                    <li>COntact</li>
+                </ul>
+            </div>
+            <div class="border border-neutral-400 rounded-full  h-10 w-10 flex justify-center items-center">
+                <i class="fa-solid fa-address-book "></i>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Manual Parts -->
+        <section class="pt-14 ">
+            <div class="text-container mx-auto lg:max-w-2xl max-w-lg  text-center space-y-3">
+                <p class="text-[#13131399] font-bold">Bringing Families Together <i
+                        class="fa-solid fa-fire text-red-600"></i>
+                </p>
+                <h1 class="text-7xl font-bold">Your Path to Adoption Starts Here</h1>
+                <p class="text-[#131313]">It is a long established fact that a reader will be distracted by the readable
+                    content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+
+                <button class=" btn bg-green-500">View More</button>
+            </div>
+            <!-- Img Container -->
+            <div class="max-w-2xl mx-auto border rounded-xl mt-2">
+                <img class="w-full h-full" src="./images/pet.webp" alt="">
+            </div>
+            <!-- 2nd Text COntainer -->
+            <div class="mt-24 mb-12 text-center max-w-2xl mx-auto space-y-2">
+                <h2 class="text-5xl font-bold">Adopt Your Best Friend</h2>
+                <p class="opacity-55">It is a long established fact that a reader will be distracted by the readable
+                    content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="mt-8 footer justify-around p-10 bg-[#131313] text-[#FFFFFF99] ">
+        <nav>
+            <div class="flex gap-3 ">
+                <img src="./images/logo.webp" alt="" class="object-fill">
+                <h1 class="text-3xl font-bold">Peddy</h1>
+            </div>
+            <a>Location: Kanchon bazar, rupgang </a>
+            <a class="link link-hover">Phone: 01745898870</a>
+            <a class="link link-hover">Email: shawonreza@gmail.com</a>
+            <a class="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+            <h6 class="Useful Links font-bold">Useful Links</h6>
+            <a class="link link-hover">Home</a>
+            <a class="link link-hover">About us</a>
+            <a class="link link-hover">Animalss</a>
+            <a class="link link-hover">Foundation</a>
+            <a class="link link-hover">Contact</a>
+        </nav>
+
+        <form>
+            <h6 class="font-bold text-[#FFFFFF99]">Drop Aa Message</h6>
+            <fieldset class="form-control w-80">
+                <label class="label">
+                    <span class="label-text">Enter your email address</span>
+                </label>
+                <div class="join flex flex-col gap-5">
+                    <input type="text" placeholder="username@site.com" class="input input-bordered w-[240px]" />
+
+                    <button class="btn btn-primary w-[240px] ">Subscribe</button>
+                </div>
+            </fieldset>
+        </form>
+    </footer>
+
+
+</body>
+
+</html>
