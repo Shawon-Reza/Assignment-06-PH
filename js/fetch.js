@@ -100,7 +100,7 @@ const displayAllPets = (data) => {
 
         <div class="flex justify-between mt-2">
         <button class="btn"><i class="fa-regular fa-thumbs-up"></i></button>
-        <button class="btn">Adopt</button>
+        <button class="btn" onclick="CountDownModal()">Adopt</button>
         <button class="btn" onclick="showModal(${element.petId})">Details</button>
         </div>
         `
@@ -110,30 +110,38 @@ const displayAllPets = (data) => {
 }
 
 async function showModal(petId) {
-    const res= await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`) 
-    const data=await res.json();
-    const finalData=data.petData
+    const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`)
+    const data = await res.json();
+    const finalData = data.petData
 
     // Fetch pet details from the API
-    
-        // Populate the modal with the pet data
-        document.getElementById('modalPetImage').src = finalData.image;
-        document.getElementById('modalPetName').textContent = finalData.pet_name;
-        document.getElementById('modalPetBreed').textContent = ` Breed: ${finalData.breed}`;
-        document.getElementById('modalPetBirth').textContent = ` Birth: ${finalData.date_of_birth}`;
-        document.getElementById('modalPetGender').textContent = `Gender: ${finalData.gender}`;
-        document.getElementById('modalPetPrice').textContent = `Price: ${finalData.price}`;
-        document.getElementById('modalPetVaccinated').textContent = `Vaccination Status: ${finalData.vaccinated_status}`;
 
-        document.getElementById('petDetails').textContent = ` ${finalData.pet_details}`;
-  
-        // Show the modal
-        document.getElementById('petModal').classList.remove('hidden');
-     
-  }
-  
-  // Close the modal when clicking the "close" button
-  document.getElementById('closeModal').onclick = function() {
+    // Populate the modal with the pet data
+    document.getElementById('modalPetImage').src = finalData.image;
+    document.getElementById('modalPetName').textContent = finalData.pet_name;
+    document.getElementById('modalPetBreed').textContent = ` Breed: ${finalData.breed}`;
+    document.getElementById('modalPetBirth').textContent = ` Birth: ${finalData.date_of_birth}`;
+    document.getElementById('modalPetGender').textContent = `Gender: ${finalData.gender}`;
+    document.getElementById('modalPetPrice').textContent = `Price: ${finalData.price}`;
+    document.getElementById('modalPetVaccinated').textContent = `Vaccination Status: ${finalData.vaccinated_status}`;
+
+    document.getElementById('petDetails').textContent = ` ${finalData.pet_details}`;
+
+    // Show the modal
+    document.getElementById('petModal').classList.remove('hidden');
+
+}
+
+// Close the modal when clicking the "close" button
+document.getElementById('closeModal').onclick = function () {
     document.getElementById('petModal').classList.add('hidden');
-  };
-  
+};
+
+//   CountDown Modal
+
+function CountDownModal() {
+    console.log("Count")
+   
+
+    my_modal_1.showModal()
+}
