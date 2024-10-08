@@ -96,10 +96,12 @@
 
                 <button class=" btn btn-accent " onclick="location.href='#Allcatagories'">View More</button>
             </div>
+
             <!-- Img Container -->
             <div class="max-w-2xl mx-auto border rounded-xl mt-2">
                 <img class="w-full h-full" src="./images/pet.webp" alt="">
             </div>
+
             <!-- 2nd Text COntainer -->
             <div class="mt-24 mb-12  max-w-2xl mx-auto space-y-2">
                 <h2 class="text-5xl font-bold">Adopt Your Best Friend</h2>
@@ -112,11 +114,13 @@
         <!-- Dynamically Create Categories Section -->
         <section id="Allcatagories" class="grid grid-cols-4 gap-4">
         </section>
-
+        <!-- Short Byprice Section Start -->
         <div class="my-8 flex justify-between items-center ">
             <h2 class="font-bold">Best Deal For You</h2>
-            <button class="btn btn-accent">Sort By Price</button>
+            <button id="sortByPrice" class="btn btn-accent">Sort By Price</button>
         </div>
+        <!-- Short Byprice Section End -->
+
         <!-- Loading start -->
         <section id="loadingbar" class="flex justify-center hidden">
             <span class="loading loading-bars loading-xs"></span>

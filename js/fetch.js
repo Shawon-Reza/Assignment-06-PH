@@ -76,7 +76,7 @@ const displayAllPets = (data) => {
         `
         AllPetContainer.classList.add('col-span-4')
         AllPetContainer.classList.add('lg:col-span-4')
-        
+
         // AllPetContainer.classList.add('sm:grid-cols-1')
         AllPetContainer.classList.add('lg:grid-cols-1')
         AllPetContainer.classList.add('grid-cols-1')
@@ -90,13 +90,7 @@ const displayAllPets = (data) => {
         AllPetContainer.classList.remove('lg:grid-cols-1')
         AllPetContainer.classList.remove('sm:grid-cols-1')
         AllPetContainer.classList.add('grid-cols-2')
-
-
-
     }
-
-
-
     // Show All pets using for loop
     for (element of data) {
         const div = document.createElement('div')
@@ -195,3 +189,14 @@ async function displayLikedImg(id) {
     console.log(id)
     console.log(finalData)
 }
+
+// Catch Price Button and sort by Price
+document.getElementById('sortByPrice').addEventListener('click', async function () {
+
+    const res = await fetch('https://openapi.programming-hero.com/api/peddy/pets')
+    const data = await res.json();
+    const finalData = data.pets
+    finalData.sort((a, b) => b.price - a.price);
+    displayAllPets(finalData);
+
+})
