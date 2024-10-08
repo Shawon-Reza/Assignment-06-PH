@@ -31,9 +31,9 @@ function displayALLCategories(data) {
           `
         div.classList = "btn cmn-btn"
 
-        // Buton actions pink-400
+        // Buton actions 
         div.onclick = async () => {
-            removeBtnBg();
+            removeBtnBg();  // remove bg for all Btn
             div.classList.add("activeBtn")
 
 
@@ -104,19 +104,19 @@ const displayAllPets = (data) => {
         const div = document.createElement('div')
         div.innerHTML = `
         <div class="h-[160px]">
-         <img class="h-full rounded-lg object-cover" src="${element.image}">
+         <img class="h-full w-full rounded-lg object-cover" src="${element.image}">
         </div>
 
         <div>
         <h1 class="font-bold">${element.pet_name}</h1>
-        <p><i class="fa-solid fa-border-all"></i>  Breed:${element.breed} </p>
-        <p><i class="fa-solid fa-cake-candles"></i>  Birth: ${element.date_of_birth}</p>
+        <p><i class="fa-solid fa-border-all"></i>  Breed:${element.breed || ' Not Available'} </p>
+        <p><i class="fa-solid fa-cake-candles"></i>  Birth: ${element.date_of_birth || ' Not Available'}</p>
         </div>
-        <p><i class="fa-solid fa-venus"></i> Gender: ${element.gender}</p>
-        <p><i class="fa-solid fa-tag"></i> Price: ${element.price}</p> <hr>
+        <p><i class="fa-solid fa-venus"></i> Gender: ${element.gender || ' Not Available'}</p>
+        <p><i class="fa-solid fa-tag"></i> Price: ${element.price || ' Not Available'}</p> <hr>
 
         <div class="flex justify-between mt-2">
-        <button class="btn" onclick="displayLikedImg(${element.petId})" ><i class="fa-regular fa-thumbs-up"></i></button>
+        <button class="btn" onclick="displayLikedImg(${element.petId })" ><i class="fa-regular fa-thumbs-up"></i></button>
 
         <button id="btn${element.petId}" class="btn" onclick="CountDownModal(${element.petId})">Adopt</button>
         <button class="btn" onclick="showModal(${element.petId})">Details</button>
