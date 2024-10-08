@@ -29,13 +29,21 @@ function displayALLCategories(data) {
           <p class="font-bold"> ${element.category}</p>
         </button>
           `
-        div.classList = "btn"
-        // Buton actions
+        div.classList = "btn cmn-btn"
+
+        // Buton actions pink-400
         div.onclick = async () => {
+            removeBtnBg();
+            div.classList.add("activeBtn")
+
+
+
             // rmv hidden class
             document.getElementById('loadingbar').classList.remove('hidden')
             // Add Hidden class On AllPetConatainer
             document.getElementById('AllPetsContainer').classList.add('hidden')
+
+
             setTimeout(() => {
 
                 // Add hidden class to set previous state.
@@ -200,3 +208,15 @@ document.getElementById('sortByPrice').addEventListener('click', async function 
     displayAllPets(finalData);
 
 })
+
+
+// Remove Button BackGround Color
+function removeBtnBg() {
+    const btns = document.getElementsByClassName('cmn-btn')
+    console.log(btns)
+    for (let btn of btns) {
+        console.log(btn)
+       btn.classList.remove("activeBtn")
+    }
+}
+
