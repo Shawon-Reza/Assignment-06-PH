@@ -14,5 +14,5 @@ Project name: Pet Adoption Platform
     - Enhanced Object Literals
     - let and const etc
 - Live link to the deployed project:
-    - 
+    - https://ph-a10-assignment-6.netlify.app/
 
