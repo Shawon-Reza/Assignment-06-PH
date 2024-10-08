@@ -1,1 +1,1 @@
-#Project name: Pet Adoption Platform
+* Project name: Pet Adoption Platform
