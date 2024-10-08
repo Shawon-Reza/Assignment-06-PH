@@ -8,5 +8,11 @@ Project name: Pet Adoption Platform
      * You redirect view more button to our pet categories.
      * If any info missing about pet we set the value Not Available
      * You also set no info available is any categories has no pets details
-- Second bullet point
+- ES6 features used :
+    - Template Literals
+    - Arrow Functions
+    - Enhanced Object Literals
+    - let and const etc
+- Live link to the deployed project:
+    - 
 
