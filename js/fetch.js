@@ -32,6 +32,19 @@ function displayALLCategories(data) {
         div.classList = "btn"
         // Buton actions
         div.onclick = async () => {
+            // rmv hidden class
+            document.getElementById('loadingbar').classList.remove('hidden')
+            // Add Hidden class On AllPetConatainer
+            document.getElementById('AllPetsContainer').classList.add('hidden')
+            setTimeout(() => {
+
+                // Add hidden class to set previous state.
+                document.getElementById('loadingbar').classList.add('hidden')
+                // Remove hidden class on AllPetContainer
+                document.getElementById('AllPetsContainer').classList.remove('hidden')
+
+            }, 2000);
+
             const btnRes = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${element.category}`)
             const btnData = await btnRes.json();
             // Send the data for displayAllPets() funtion
@@ -40,12 +53,7 @@ function displayALLCategories(data) {
         cetagoriesContainer.append(div)
     });
 }
-// Fetch pets using categories .
-async function fetchPetsUsingCategories() {
-    const res = await fetch('')
 
-}
-fetchPetsUsingCategories();
 
 // Display All pets*** fetch from fetchAllPets(). line 10.
 const displayAllPets = (data) => {
@@ -53,7 +61,7 @@ const displayAllPets = (data) => {
     const AllPetContainer = document.getElementById('AllPerContainer')
 
     AllPetContainer.innerHTML = ""
-    // check that the sectains contains data or not. if data not found then show custom value;
+    //Length: check that the sectains contains data or not. if data not found then show custom value;
     if (data.length == 0) {
 
         AllPetContainer.innerHTML = `
@@ -141,7 +149,7 @@ document.getElementById('closeModal').onclick = function () {
 //   CountDown counting Modal call from 
 
 function CountDownModal(id) {
-    const value= document.getElementById('countdown').innerText=3;
+    const value = document.getElementById('countdown').innerText = 3;
     let integervalue = parseInt(value);
     //    console.log(typeof integervalue)
     const intervalId = setInterval(() => {
@@ -163,20 +171,20 @@ function CountDownModal(id) {
 
 // Display Like imge 
 async function displayLikedImg(id) {
-    const likedPetContainer=document.getElementById('likedPetContainer')
-    const res=await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
-    const data =await res.json();
-    const finalData=data.petData
+    const likedPetContainer = document.getElementById('likedPetContainer')
+    const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
+    const data = await res.json();
+    const finalData = data.petData
 
-    const div=document.createElement('div')
+    const div = document.createElement('div')
 
-    div.innerHTML=`
+    div.innerHTML = `
     <img class="h-full rounded-lg " src="${finalData.image}">
     `
-    div.classList="h-[100px] py-2 border flex justify-center rounded-lg"
+    div.classList = "h-[100px] py-2 border flex justify-center rounded-lg"
     likedPetContainer.append(div)
 
-   
+
     console.log(id)
     console.log(finalData)
 }
