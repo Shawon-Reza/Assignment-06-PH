@@ -99,7 +99,8 @@ const displayAllPets = (data) => {
         <p><i class="fa-solid fa-tag"></i> Price: ${element.price}</p> <hr>
 
         <div class="flex justify-between mt-2">
-        <button class="btn"><i class="fa-regular fa-thumbs-up"></i></button>
+        <button class="btn" onclick="displayLikedImg(${element.petId})" ><i class="fa-regular fa-thumbs-up"></i></button>
+
         <button id="btn${element.petId}" class="btn" onclick="CountDownModal(${element.petId})">Adopt</button>
         <button class="btn" onclick="showModal(${element.petId})">Details</button>
         </div>
@@ -137,7 +138,7 @@ document.getElementById('closeModal').onclick = function () {
     document.getElementById('petModal').classList.add('hidden');
 };
 
-//   CountDown Modal
+//   CountDown counting Modal call from 
 
 function CountDownModal(id) {
     const value= document.getElementById('countdown').innerText=3;
@@ -158,4 +159,24 @@ function CountDownModal(id) {
         }
     }, 1000);
     my_modal_1.showModal()
+}
+
+// Display Like imge 
+async function displayLikedImg(id) {
+    const likedPetContainer=document.getElementById('likedPetContainer')
+    const res=await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
+    const data =await res.json();
+    const finalData=data.petData
+
+    const div=document.createElement('div')
+
+    div.innerHTML=`
+    <img class="h-full rounded-lg " src="${finalData.image}">
+    `
+    div.classList="h-[100px] py-2 border flex justify-center rounded-lg"
+    likedPetContainer.append(div)
+
+   
+    console.log(id)
+    console.log(finalData)
 }
