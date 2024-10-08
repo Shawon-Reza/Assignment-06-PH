@@ -7,3 +7,8 @@ Short description:
      * You redirect view more button to our pet categories.
      * If any info missing about pet we set the value Not Available
      * You also set no info available is any categories has no pets details
+- First bullet point
+  - Sub-item 1
+  - Sub-item 2
+- Second bullet point
+
