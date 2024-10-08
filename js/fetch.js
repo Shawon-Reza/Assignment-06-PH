@@ -76,8 +76,11 @@ const displayAllPets = (data) => {
         `
         AllPetContainer.classList.add('col-span-4')
         AllPetContainer.classList.add('lg:col-span-4')
-        AllPetContainer.classList.add('grid-cols-1')
+        
+        // AllPetContainer.classList.add('sm:grid-cols-1')
         AllPetContainer.classList.add('lg:grid-cols-1')
+        AllPetContainer.classList.add('grid-cols-1')
+        AllPetContainer.classList.remove('grid-cols-2')
 
     }
     else {
@@ -85,6 +88,10 @@ const displayAllPets = (data) => {
         AllPetContainer.classList.remove('grid-cols-1')
         AllPetContainer.classList.remove('lg:col-span-4')
         AllPetContainer.classList.remove('lg:grid-cols-1')
+        AllPetContainer.classList.remove('sm:grid-cols-1')
+        AllPetContainer.classList.add('grid-cols-2')
+
+
 
     }
 
