@@ -97,7 +97,7 @@ const displayAllPets = (data) => {
         AllPetContainer.classList.remove('lg:col-span-4')
         AllPetContainer.classList.remove('lg:grid-cols-1')
         AllPetContainer.classList.remove('sm:grid-cols-1')
-        AllPetContainer.classList.add('grid-cols-2')
+        // AllPetContainer.classList.add('grid-cols-1')
     }
     // Show All pets using for loop
     for (element of data) {
@@ -114,6 +114,8 @@ const displayAllPets = (data) => {
         </div>
         <p><i class="fa-solid fa-venus"></i> Gender: ${element.gender || ' Not Available'}</p>
         <p><i class="fa-solid fa-tag"></i> Price: ${element.price || ' Not Available'}</p> <hr>
+
+
 
         <div class="flex justify-between mt-2">
         <button class="btn" onclick="displayLikedImg(${element.petId })" ><i class="fa-regular fa-thumbs-up"></i></button>
@@ -188,9 +190,9 @@ async function displayLikedImg(id) {
     const div = document.createElement('div')
 
     div.innerHTML = `
-    <img class="h-full rounded-lg " src="${finalData.image}">
+    <img class="h-full rounded-lg  " src="${finalData.image}">
     `
-    div.classList = "h-[100px] py-2 border flex justify-center rounded-lg"
+    div.classList = "h-[100px] py-2 border flex justify-center rounded-lg shadow-lg px-1"
     likedPetContainer.append(div)
 
 
